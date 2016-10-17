@@ -6,7 +6,20 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 </head>
-<body>
+<body ng-app="dailyApp">
 
+	<div class="content">
+		<header>
+			<a href="#">Accueil</a>
+			<ul class="nav">
+				<li><a href="#galerie">Galerie</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</header>
+		<div class="app" ng-view></div>
+	</div>
+	<script src="js/angular/angular.min.js"></script>
+	<script src="js/angular/angular-route/angular-route.min.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
