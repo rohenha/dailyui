@@ -10,7 +10,7 @@ dailyApp.config(function ($routeProvider) {
 	  controller: 'galerieController',
 	  templateUrl: 'views/galerie.html'
 	})
-	.when('/', {
+	.when('/contact', {
 	  controller: 'contactController',
 	  templateUrl: 'views/contact.html'
 	})
@@ -19,16 +19,24 @@ dailyApp.config(function ($routeProvider) {
     });
 });
 
-dailyApp.controller('accueilController', ['$scope', function($scope, $http, $q) {
-  $scope.message = "Bienvenue sur la page accueil";
-  var deferred = $q.defer(); // Déclaration de la variable
-  $http.get('../content/data.json').then(function(data){
-	  deferred.resolve(data); // J'envoie à la promesse les valeurs
-  }, function(data){
-	  deferred.reject('Erreur'); // j'envoie l'erreur à la promesse
-  });
-  $scope.datas = deferred.promise; // n'est lancé que si resolve ou reject est lancé
+dailyApp.factory('dataService', ['$scope','$http', '$q', function ($scope, $http, $q) {
+	var services = {
+		getDatas: function() {
+			var deferred = $q.defer(); // Déclaration de la variable
+		    $http.get('content/data.json').then(function(data){
+		  	  deferred.resolve(data); // J'envoie à la promesse les valeurs
+		    }, function(data){
+		  	  deferred.reject('Erreur'); // j'envoie l'erreur à la promesse
+		    });
+		    return  deferred.promise; // n'est lancé que si resolve ou reject est lancé
+		}
+	};
+	return services;
+}]);
 
+dailyApp.controller('accueilController', ['$scope', 'dataService', function($scope, dataService) {
+  $scope.message = "Bienvenue sur la page accueil";
+	$scope.datas = dataService.getDatas();
 }]);
 
 dailyApp.controller('galerieController', ['$scope', function($scope) {
