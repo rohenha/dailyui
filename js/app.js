@@ -23,6 +23,12 @@ dailyApp.run(function($rootScope, $templateCache) {
    $rootScope.$on('$viewContentLoaded', function() {
       $templateCache.removeAll();
    });
+
+   $rootScope.prehome = function(){
+		$('body').addClass('open');
+   }
+
+   $('#prehome.load').removeClass('load');
 });
 
 dailyApp.factory('dataService', ['$rootScope','$http', '$q', function ($rootScope, $http, $q) {
@@ -39,7 +45,7 @@ dailyApp.factory('dataService', ['$rootScope','$http', '$q', function ($rootScop
 	};
 }]);
 
-dailyApp.controller('accueilController', ['$scope', 'dataService', '$http', '$q', function($scope, dataService) {
+dailyApp.controller('accueilController', ['$scope', 'dataService', function($scope, dataService) {
   	$scope.message = "Bienvenue sur la page accueil";
 	$scope.index = 0;
 	dataService.getDatas().then(function(data) {
@@ -96,6 +102,5 @@ $(document).ready(function() {
 				return element.find('img');
 			}
 		}
-
 	});
 });

@@ -1,17 +1,25 @@
-<h1>Accueil</h1>
 
-<p>{{message}}</p>
-<div class="project">
-	<div class="left zoom-gallery">
-		<a href="{{project.img}}" data-source="{{project.img}}">
-			<img ng-src="{{project.img}}" alt="{{project.nom}}">
-		</a>
+<div id="accueil">
+	<div class="gradient-text">
+		<h1>Accueil</h1>
 	</div>
-	<div class="right">
-		<h3>Day #{{index + 1}}</h3>
-		<h2>{{project.nom}}</h2>
-		<p>{{project.tags}}</p>
+	<div id="project">
+		<div class="left zoom-gallery">
+			<a href="{{project.img}}" data-source="{{project.img}}">
+				<img ng-src="{{project.img}}" alt="{{project.nom}}">
+			</a>
+		</div>
+		<div class="right">
+			<h2>
+				<span class="gradient-text">
+					<span>#{{$index + 1}}</span>
+				</span>
+			</h2>
+			<h2>{{project.nom}}</h2>
+			<p>{{project.tags}}</p>
+		</div>
 	</div>
+
 </div>
 
 <span id="previous" ng-click="previousProject()">previous</span>

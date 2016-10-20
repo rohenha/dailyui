@@ -1,0 +1,40 @@
+#galerie{
+	width: 100%;
+	ul{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		li{
+			width: 25%;
+			padding: 10px;
+			box-sizing: border-box;
+			.zoom-gallery{
+
+			}
+			h2{
+				text-align: center;
+				position: relative;
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				span.title{
+					color: $color3;
+					font-family: $opensans;
+					font-size: 15px;
+					margin: 0;
+					padding:0 5px;
+					display: inline-block;
+				}
+				span.gradient-text{
+					margin: 0;
+					display: inline-block;
+				}
+			}
+		}
+	}
+}

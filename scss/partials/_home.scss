@@ -1,0 +1,31 @@
+#accueil{
+	#project{
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: center;
+		.left{
+			width: 50%;
+			padding: 10px;
+		}
+		.right{
+			width: 50%;
+			padding: 10px;
+			h2{
+				margin: 0;
+				font-family: $opensans;
+				color: $color3;
+				font-weight: bold;
+				&.gradient-text{
+
+				}
+				span{
+					margin: 0;
+				}
+			}
+			p{
+				color: $color2;
+			}
+		}
+	}
+}

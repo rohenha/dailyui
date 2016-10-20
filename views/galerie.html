@@ -1,13 +1,21 @@
-<h1>Galerie</h1>
 
-<p>{{message}}</p>
-<ul>
-	<li ng-repeat="project in datas">
-		<p>{{project.nom}} <span>Day #{{$index + 1}}</span></p>
-		<div class="zoom-gallery">
-			<a href="{{project.img}}" data-source="{{project.img}}">
-				<img ng-src="{{project.img}}" alt="{{project.nom}}">
-			</a>
-		</div>
-	</li>
-</ul>
+<div id="galerie">
+	<div class="gradient-text">
+		<h1>Galerie</h1>
+	</div>
+	<ul>
+		<li ng-repeat="project in datas">
+			<div class="zoom-gallery">
+				<a href="{{project.img}}" data-source="{{project.img}}">
+					<img ng-src="{{project.img}}" alt="{{project.nom}}">
+				</a>
+			</div>
+			<h2>
+				<span class="title">{{project.nom}}</span>
+				<span class="gradient-text">
+					<span>#{{$index + 1}}</span>
+				</span>
+			</h2>
+		</li>
+	</ul>
+</div>
