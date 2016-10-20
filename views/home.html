@@ -1,7 +1,18 @@
 <h1>Accueil</h1>
 
 <p>{{message}}</p>
-{{datas}}
+<div class="project">
+	<div class="left zoom-gallery">
+		<a href="{{project.img}}" data-source="{{project.img}}">
+			<img ng-src="{{project.img}}" alt="{{project.nom}}">
+		</a>
+	</div>
+	<div class="right">
+		<h3>Day #{{index + 1}}</h3>
+		<h2>{{project.nom}}</h2>
+		<p>{{project.tags}}</p>
+	</div>
+</div>
 
-<span id="previous">previous</span>
-<span id="next">next</span>
+<span id="previous" ng-click="previousProject()">previous</span>
+<span id="next" ng-click="nextProject()">next</span>

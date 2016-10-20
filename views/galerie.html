@@ -1,3 +1,13 @@
 <h1>Galerie</h1>
 
 <p>{{message}}</p>
+<ul>
+	<li ng-repeat="project in datas">
+		<p>{{project.nom}} <span>Day #{{$index + 1}}</span></p>
+		<div class="zoom-gallery">
+			<a href="{{project.img}}" data-source="{{project.img}}">
+				<img ng-src="{{project.img}}" alt="{{project.nom}}">
+			</a>
+		</div>
+	</li>
+</ul>

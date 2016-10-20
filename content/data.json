@@ -1,20 +1,24 @@
 [
 	{
+		"jour" : "1",
 		"nom" : "Le roi Lion",
 		"img" : "content/uploads/lionking.jpg",
 		"tags" : "le roi lion, disney, flat design"
 	},
 	{
+		"jour" : "2",
 		"nom" : "La reine des neiges",
 		"img" : "content/uploads/snowqueen.jpg",
 		"tags" : "la reine des neiges, disney, flat design"
 	},
 	{
+		"jour" : "3",
 		"nom" : "Là haut",
 		"img" : "content/uploads/updown.jpg",
 		"tags" : "là haut, disney, flat design"
 	},
 	{
+		"jour" : "4",
 		"nom" : "Donald Duck",
 		"img" : "content/uploads/donaldduck.jpg",
 		"tags" : "Donald Duck, disney, flat design"
