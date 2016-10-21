@@ -1,8 +1,8 @@
 
 <div id="accueil">
-	<div class="gradient-text">
+	<!-- <div class="gradient-text">
 		<h1>Accueil</h1>
-	</div>
+	</div> -->
 	<div id="project">
 		<div class="left zoom-gallery">
 			<a href="{{project.img}}" data-source="{{project.img}}">
@@ -12,7 +12,7 @@
 		<div class="right">
 			<h2>
 				<span class="gradient-text">
-					<span>#{{$index + 1}}</span>
+					<span>#{{project.jour}}</span>
 				</span>
 			</h2>
 			<h2>{{project.nom}}</h2>
@@ -22,5 +22,5 @@
 
 </div>
 
-<span id="previous" ng-click="previousProject()">previous</span>
-<span id="next" ng-click="nextProject()">next</span>
+<span id="previous" ng-click="previousProject()"></span>
+<span id="next" ng-click="nextProject()"></span>

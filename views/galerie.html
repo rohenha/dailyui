@@ -1,5 +1,5 @@
 
-<div id="galerie">
+<div id="galerie" class="content">
 	<div class="gradient-text">
 		<h1>Galerie</h1>
 	</div>
@@ -11,10 +11,7 @@
 				</a>
 			</div>
 			<h2>
-				<span class="title">{{project.nom}}</span>
-				<span class="gradient-text">
-					<span>#{{$index + 1}}</span>
-				</span>
+				<span class="title">#{{$index + 1}} : {{project.nom}}</span>
 			</h2>
 		</li>
 	</ul>

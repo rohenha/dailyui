@@ -58,7 +58,7 @@
 
 header{
 	width: 100%;
-	height: 70px;
+	height: 60px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -68,8 +68,7 @@ header{
 	top: 0;
 	left: 0;
 	width: 100%;
-	// background-color: darken($color1,7%);
-	// box-shadow: 0px -5px 10px 10px rgba(darken($color1, 10%), 0.5);
+	background-color: #ffffff;
 	border-bottom: 1px solid darken($color1, 8%);
 	.content{
 		display: flex;
@@ -86,43 +85,38 @@ header{
 	#homeLink{
 		height: 80%;
 	}
+	ul{
+		height: 100%;
+		li{
+			height: 100%;
+			border-left: 1px solid darken($color1, 8%);
+			a{
+				text-decoration: none;
+				padding: 0 10px;
+				color: $color3;
+				background: #ffffff; /* Old browsers */
+				display: block;
+				height: 100%;
+				line-height: 60px;
+				text-transform: uppercase;
+				font-size: 13px;
+				position: relative;
+				display: inline-block;
+				box-sizing: border-box;
+				background-color: none;
+				transition: all 0.3s ease-out;
+				&.active{
+					width: 100%;
+					top: 100%;
+					left: 0;
+					opacity: 1;
+					transition: top 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out 0.2s, left 0.3s ease-out 0.2s;
 
-	li a{
-		text-decoration: none;
-		padding: 5px 10px;
-		color: $color3;
-		text-transform: uppercase;
-		font-size: 13px;
-		position: relative;
-		display: inline-block;
-		box-sizing: border-box;
-		&::before{
-			content:"";
-			display: block;
-			width: 50%;
-			height: 1px;
-			background-color: $color3;
-			position: absolute;
-			top: 80%;
-			left:25%;
-			opacity: 0;
-			transition: top 0.3s ease-out 0.2s, opacity 0.2s ease-out 0.3s, width 0.3s ease-out, left 0.3s ease-out;
-		}
-		&.active{
-			width: 100%;
-			top: 100%;
-			left: 0;
-			opacity: 1;
-			transition: top 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out 0.2s, left 0.3s ease-out 0.2s;
-
-		}
-		&:hover{
-			&::before{
-				width: 100%;
-				top: 100%;
-				left: 0;
-				opacity: 1;
-				transition: top 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out 0.2s, left 0.3s ease-out 0.2s;
+				}
+				&:hover{
+					background: darken($color1, 4%); /* Old browsers */
+					color: $color4;
+				}
 			}
 		}
 	}

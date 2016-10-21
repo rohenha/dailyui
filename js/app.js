@@ -47,9 +47,9 @@ dailyApp.factory('dataService', ['$rootScope','$http', '$q', function ($rootScop
 
 dailyApp.controller('accueilController', ['$scope', 'dataService', function($scope, dataService) {
   	$scope.message = "Bienvenue sur la page accueil";
-	$scope.index = 0;
 	dataService.getDatas().then(function(data) {
 		$scope.datas = data;
+		$scope.index = $scope.datas.length -1;
 		$scope.project = data[$scope.index];
 	});
 

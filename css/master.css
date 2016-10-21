@@ -7,6 +7,10 @@ p, a {
   font-family: "Open Sans", sans-serif;
   color: #b2b2b2; }
 
+html, body {
+  width: 100%;
+  height: 100%; }
+
 img {
   width: 100%; }
 
@@ -97,7 +101,9 @@ ul {
     list-style: none; }
 
 .app {
-  margin-top: 80px; }
+  height: -webkit-calc(100% - 60px);
+  height: calc(100% - 60px);
+  margin-top: 60px; }
 
 .gradient-text {
   background: #53b8d1;
@@ -192,7 +198,7 @@ ul {
 
 header {
   width: 100%;
-  height: 70px;
+  height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -212,6 +218,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  background-color: #ffffff;
   border-bottom: 1px solid #eaeaea; }
   header .content {
     display: -webkit-box;
@@ -235,44 +242,113 @@ header {
     height: 100%; }
   header #homeLink {
     height: 80%; }
-  header li a {
-    text-decoration: none;
-    padding: 5px 10px;
-    color: #2955a5;
-    text-transform: uppercase;
-    font-size: 13px;
-    position: relative;
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
-    header li a::before {
-      content: "";
-      display: block;
-      width: 50%;
-      height: 1px;
-      background-color: #2955a5;
-      position: absolute;
-      top: 80%;
-      left: 25%;
-      opacity: 0;
-      -webkit-transition: top 0.3s ease-out 0.2s, opacity 0.2s ease-out 0.3s, width 0.3s ease-out, left 0.3s ease-out;
-      transition: top 0.3s ease-out 0.2s, opacity 0.2s ease-out 0.3s, width 0.3s ease-out, left 0.3s ease-out; }
-    header li a.active {
-      width: 100%;
-      top: 100%;
-      left: 0;
-      opacity: 1;
-      -webkit-transition: top 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out 0.2s, left 0.3s ease-out 0.2s;
-      transition: top 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out 0.2s, left 0.3s ease-out 0.2s; }
-    header li a:hover::before {
-      width: 100%;
-      top: 100%;
-      left: 0;
-      opacity: 1;
-      -webkit-transition: top 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out 0.2s, left 0.3s ease-out 0.2s;
-      transition: top 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out 0.2s, left 0.3s ease-out 0.2s; }
+  header ul {
+    height: 100%; }
+    header ul li {
+      height: 100%;
+      border-left: 1px solid #eaeaea; }
+      header ul li a {
+        text-decoration: none;
+        padding: 0 10px;
+        color: #2955a5;
+        background: #ffffff;
+        /* Old browsers */
+        display: block;
+        height: 100%;
+        line-height: 60px;
+        text-transform: uppercase;
+        font-size: 13px;
+        position: relative;
+        display: inline-block;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        background-color: none;
+        -webkit-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out; }
+        header ul li a.active {
+          width: 100%;
+          top: 100%;
+          left: 0;
+          opacity: 1;
+          -webkit-transition: top 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out 0.2s, left 0.3s ease-out 0.2s;
+          transition: top 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out 0.2s, left 0.3s ease-out 0.2s; }
+        header ul li a:hover {
+          background: #f4f4f4;
+          /* Old browsers */
+          color: #5b21bf; }
 
-#accueil #project {
+#accueil {
+  height: 100%;
+  width: 100%; }
+  #accueil #project {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    #accueil #project .left {
+      width: 50%;
+      padding: 0 10px 0 0;
+      height: 100%;
+      position: relative; }
+      #accueil #project .left::before {
+        content: "";
+        display: block;
+        height: 100%;
+        width: -webkit-calc(100% - 10px);
+        width: calc(100% - 10px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.31)));
+        background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.31) 100%);
+        background: -webkit-radial-gradient(center ellipse, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.31) 100%);
+        background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.31) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=1 ); }
+      #accueil #project .left a {
+        display: block;
+        width: 100%;
+        height: 100%; }
+      #accueil #project .left img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+           object-fit: cover; }
+    #accueil #project .right {
+      width: 50%;
+      padding: 0 0 0 10px; }
+      #accueil #project .right h2 {
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        color: #2955a5;
+        font-weight: bold; }
+        #accueil #project .right h2 span {
+          margin: 0; }
+      #accueil #project .right p {
+        color: #53b8d1; }
+
+#previous {
+  position: fixed;
+  top: 50%;
+  left: -20px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  display: block;
+  background: #eaeaea;
+  /* Old browsers */
+  border: #d8d8d8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -280,27 +356,77 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center; }
-  #accueil #project .left {
-    width: 50%;
-    padding: 10px; }
-  #accueil #project .right {
-    width: 50%;
-    padding: 10px; }
-    #accueil #project .right h2 {
-      margin: 0;
-      font-family: "Open Sans", sans-serif;
-      color: #2955a5;
-      font-weight: bold; }
-      #accueil #project .right h2 span {
-        margin: 0; }
-    #accueil #project .right p {
-      color: #53b8d1; }
+          justify-content: center;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+  #previous::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    border-left: 2px solid #2955a5;
+    border-top: 2px solid #2955a5;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out; }
+  #previous:hover {
+    left: 0; }
+    #previous:hover::before {
+      left: 0; }
+
+#next {
+  position: fixed;
+  top: 50%;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  display: block;
+  background: #eaeaea;
+  /* Old browsers */
+  border: #d8d8d8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+  #next::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    right: 10px;
+    -webkit-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+            transform: rotate(225deg);
+    border-left: 2px solid #2955a5;
+    border-bottom: 2px solid #2955a5;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out; }
+  #next:hover {
+    right: 0; }
+    #next:hover::before {
+      right: 0; }
 
 #galerie {
   width: 100%; }
