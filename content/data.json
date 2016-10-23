@@ -2,25 +2,29 @@
 	{
 		"jour" : "1",
 		"nom" : "Le roi Lion",
-		"img" : "content/uploads/lionking.jpg",
+		"img" : "content/uploads/lionking.png",
+		"gradient" : "red",
 		"tags" : "le roi lion, disney, flat design"
 	},
 	{
 		"jour" : "2",
 		"nom" : "La reine des neiges",
-		"img" : "content/uploads/snowqueen.jpg",
+		"img" : "content/uploads/snowqueen.png",
+		"gradient" : "blue",
 		"tags" : "la reine des neiges, disney, flat design"
 	},
 	{
 		"jour" : "3",
 		"nom" : "Là haut",
-		"img" : "content/uploads/updown.jpg",
+		"img" : "content/uploads/updown.png",
+		"gradient" : "blue",
 		"tags" : "là haut, disney, flat design"
 	},
 	{
 		"jour" : "4",
 		"nom" : "Donald Duck",
-		"img" : "content/uploads/donaldduck.jpg",
+		"img" : "content/uploads/donaldduck.png",
+		"gradient" : "grey",
 		"tags" : "Donald Duck, disney, flat design"
 	}
 ]

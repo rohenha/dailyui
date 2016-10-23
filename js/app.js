@@ -20,13 +20,12 @@ dailyApp.config(function ($routeProvider) {
 });
 
 dailyApp.run(function($rootScope, $templateCache) {
-   $rootScope.$on('$viewContentLoaded', function() {
       $templateCache.removeAll();
-   });
 
    $rootScope.prehome = function(){
 		$('body').addClass('open');
-   }
+   };
+
 
    $('#prehome.load').removeClass('load');
 });
@@ -35,7 +34,7 @@ dailyApp.factory('dataService', ['$rootScope','$http', '$q', function ($rootScop
 	return {
 		getDatas: function() {
 			var deferred = $q.defer(); // Déclaration de la variable
-		    $http.get('content/data.json').then(function(response){
+		    $http.get('content/data.json',{cache:false}).then(function(response){
 		  	  deferred.resolve(response.data); // J'envoie à la promesse les valeurs
 		  }, function(response){
 		  	  deferred.reject('Erreur'); // j'envoie l'erreur à la promesse
