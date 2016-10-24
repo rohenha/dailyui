@@ -16,8 +16,14 @@
 	background: linear-gradient(125deg,  #53b8d1 0%,#2955a5 50%,#5b21bf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#53b8d1', endColorstr='#5b21bf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 	opacity: 1;
+	background-size: 500% 500%;
 	visibility: visible;
 	transition: opacity 0.3s ease-out 0.1s, visibility 0.1s ease-out, background 0.3s ease-out;
+	-webkit-animation: gradientAnim 20s ease infinite;
+	-moz-animation: gradientAnim 20s ease infinite;
+	-o-animation: gradientAnim 20s ease infinite;
+	animation: gradientAnim 20s ease infinite;
+
 
 	&.load{
 		a,p,button{ opacity: 0; visibility: hidden;

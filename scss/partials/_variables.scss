@@ -2,6 +2,7 @@ $color1 : #fefefe;
 $color2 : #53b8d1;
 $color3 : #2955a5;
 $color4 : #5b21bf;
+$color5: #4b4f56;
 
 $opensans : 'Open Sans', sans-serif;
 $oswald: 'Oswald', sans-serif;
@@ -10,3 +11,25 @@ $oswald: 'Oswald', sans-serif;
 $widthdesktop : 1200px;
 $widthtablet : 768px;
 $widthmobile : 400px;
+
+
+@-webkit-keyframes gradientAnim {
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
+}
+@-moz-keyframes gradientAnim {
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
+}
+@-o-keyframes gradientAnim {
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
+}
+@keyframes gradientAnim {
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
+}

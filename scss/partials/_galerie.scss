@@ -12,42 +12,103 @@
 			padding: 10px;
 			box-sizing: border-box;
 			position: relative;
-			span.day{
-				position: absolute;
-				bottom: 50%;
-				left: calc(50% - 75px);
-				font-family: $oswald;
-				color: darken($color1, 10%);
-				font-weight: bold;
-				font-size: 150px;
+			.card{
+				box-shadow: 0 20px 20px rgba(0,0,0,.08);
+				position: relative;
+				top: 0;
+				transition: all 0.3s ease-out;
+				&:hover{
+					box-shadow: 0 40px 40px rgba(0,0,0,.16);
+					top: -5px;
+					h2{
+						&::before{
+							max-width: 380px;
+						}
+						span{
+							&::before{
+								max-width: 80px;
+							}
+						}
+					}
+				}
 			}
 			.zoom-gallery{
 				position: relative;
 				z-index: 5;
 				width: 100%;
-				height: 150px;
-				img{
+				height: 300px;
+
+				a{
+					display: block;
 					width: 100%;
 					height: 100%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+				}
+				img{
+					width: 80%;
+					height: 80%;
 					object-fit: contain;
 				}
 			}
 			h2{
 				text-align: center;
 				position: relative;
-				width: 100%;
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: center;
-				color: $color3;
+				box-sizing: border-box;
+				color: darken(#ffffff,5%);
 				font-family: $opensans;
-				font-size: 15px;
-				margin: 0;
-				padding:0 5px;
+				text-align: left;
+				padding:20px 10px;
 				display: inline-block;
 				position: relative;
 				z-index: 5;
+				font-size: 24px;
+				font-weight: 800;
+				line-height: 32px;
+				&::before{
+					content: attr(data-title);
+					color: $color5;
+					display: inline;
+					overflow: hidden;
+					position: absolute;
+					padding: 10px 0;
+					top: 0;
+					left: 0;
+					min-width: 800px;
+					font-size: 24px;
+					font-weight: 800;
+					line-height: 32px;
+					z-index: 2;
+					max-width: 0;
+					transition: all 0.3s ease-out;
+				}
+				span{
+					position: absolute;
+					color: $color2;
+					top: 10px;
+				    left: 9px;
+				    z-index: -1;
+				    font-size: 60px;
+					display: inline-block;
+					padding: 10px 0;
+					&::before{
+						content: attr(data-day);
+						color: darken(#ffffff,5%);
+						display: inline-block;
+						overflow: hidden;
+						position: absolute;
+						padding: 10px 0;
+						top: 0;
+						left: 0;
+						font-size: 60px;
+						font-weight: 800;
+						z-index: 2;
+						max-width: 0;
+						transition: all 0.3s ease-out;
+					}
+				}
 			}
 		}
 	}

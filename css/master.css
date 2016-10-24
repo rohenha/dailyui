@@ -1,4 +1,20 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400|Oswald:700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,800");
+@-webkit-keyframes gradientAnim {
+  0% {
+    background-position: 0% 91%; }
+  50% {
+    background-position: 100% 10%; }
+  100% {
+    background-position: 0% 91%; } }
+
+@keyframes gradientAnim {
+  0% {
+    background-position: 0% 91%; }
+  50% {
+    background-position: 100% 10%; }
+  100% {
+    background-position: 0% 91%; } }
+
 * {
   margin: 0;
   padding: 0; }
@@ -105,7 +121,20 @@ ul {
   height: -webkit-calc(100% - 60px);
   height: calc(100% - 60px);
   margin-top: 60px;
-  width: 100%; }
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
 
 .gradient-text {
   background: #53b8d1;
@@ -225,9 +254,12 @@ ul {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#53b8d1', endColorstr='#5b21bf',GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */
   opacity: 1;
+  background-size: 500% 500%;
   visibility: visible;
   -webkit-transition: opacity 0.3s ease-out 0.1s, visibility 0.1s ease-out, background 0.3s ease-out;
-  transition: opacity 0.3s ease-out 0.1s, visibility 0.1s ease-out, background 0.3s ease-out; }
+  transition: opacity 0.3s ease-out 0.1s, visibility 0.1s ease-out, background 0.3s ease-out;
+  -webkit-animation: gradientAnim 20s ease infinite;
+  animation: gradientAnim 20s ease infinite; }
   #prehome.load a, #prehome.load p, #prehome.load button {
     opacity: 0;
     visibility: hidden; }
@@ -503,49 +535,103 @@ header {
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
       position: relative; }
-      #galerie ul li span.day {
-        position: absolute;
-        bottom: 50%;
-        left: -webkit-calc(50% - 75px);
-        left: calc(50% - 75px);
-        font-family: "Oswald", sans-serif;
-        color: #e5e5e5;
-        font-weight: bold;
-        font-size: 150px; }
+      #galerie ul li .card {
+        -webkit-box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+                box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+        top: 0;
+        -webkit-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out; }
+        #galerie ul li .card:hover {
+          -webkit-box-shadow: 0 40px 40px rgba(0, 0, 0, 0.16);
+                  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.16);
+          top: -5px; }
+          #galerie ul li .card:hover h2::before {
+            max-width: 380px; }
+          #galerie ul li .card:hover h2 span::before {
+            max-width: 80px; }
       #galerie ul li .zoom-gallery {
         position: relative;
         z-index: 5;
         width: 100%;
-        height: 150px; }
-        #galerie ul li .zoom-gallery img {
+        height: 300px; }
+        #galerie ul li .zoom-gallery a {
+          display: block;
           width: 100%;
           height: 100%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center; }
+        #galerie ul li .zoom-gallery img {
+          width: 80%;
+          height: 80%;
           -o-object-fit: contain;
              object-fit: contain; }
       #galerie ul li h2 {
         text-align: center;
         position: relative;
-        width: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        color: #2955a5;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        color: #f2f2f2;
         font-family: "Open Sans", sans-serif;
-        font-size: 15px;
-        margin: 0;
-        padding: 0 5px;
+        text-align: left;
+        padding: 20px 10px;
         display: inline-block;
         position: relative;
-        z-index: 5; }
+        z-index: 5;
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 32px; }
+        #galerie ul li h2::before {
+          content: attr(data-title);
+          color: #4b4f56;
+          display: inline;
+          overflow: hidden;
+          position: absolute;
+          padding: 10px 0;
+          top: 0;
+          left: 0;
+          min-width: 800px;
+          font-size: 24px;
+          font-weight: 800;
+          line-height: 32px;
+          z-index: 2;
+          max-width: 0;
+          -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out; }
+        #galerie ul li h2 span {
+          position: absolute;
+          color: #53b8d1;
+          top: 10px;
+          left: 9px;
+          z-index: -1;
+          font-size: 60px;
+          display: inline-block;
+          padding: 10px 0; }
+          #galerie ul li h2 span::before {
+            content: attr(data-day);
+            color: #f2f2f2;
+            display: inline-block;
+            overflow: hidden;
+            position: absolute;
+            padding: 10px 0;
+            top: 0;
+            left: 0;
+            font-size: 60px;
+            font-weight: 800;
+            z-index: 2;
+            max-width: 0;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out; }
 
 /*# sourceMappingURL=../css/master.css.map */
