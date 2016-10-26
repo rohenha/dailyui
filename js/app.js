@@ -21,10 +21,28 @@ dailyApp.config(function ($routeProvider) {
 
 dailyApp.run(function($rootScope, $templateCache) {
       $templateCache.removeAll();
+	  var isshow = localStorage.getItem('isshow');
+	  console.log(isshow);
+      if (isshow != null) {
+		console.log(localStorage.getItem('isshow'));
+		$('body').addClass('open');
+		$('body').addClass('still');
 
+	  }else{
+		  localStorage.setItem('isshow', 1);
+	  }
    $rootScope.prehome = function(){
 		$('body').addClass('open');
    };
+   $('.image-popup-vertical-fit').magnificPopup({
+		   type: 'image',
+		   closeOnContentClick: true,
+		   mainClass: 'mfp-img-mobile',
+		   image: {
+			   verticalFit: true
+		   }
+
+	   });
 
 
    $('#prehome.load').removeClass('load');
@@ -79,27 +97,5 @@ dailyApp.controller('contactController', ['$scope', function($scope) {
 
 
 $(document).ready(function() {
-	$('.zoom-gallery').magnificPopup({
-		delegate: 'a',
-		type: 'image',
-		closeOnContentClick: false,
-		closeBtnInside: false,
-		mainClass: 'mfp-with-zoom mfp-img-mobile',
-		image: {
-			verticalFit: true,
-			titleSrc: function(item) {
-				return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
-			}
-		},
-		gallery: {
-			enabled: true
-		},
-		zoom: {
-			enabled: true,
-			duration: 300, // don't foget to change the duration also in CSS
-			opener: function(element) {
-				return element.find('img');
-			}
-		}
-	});
+
 });

@@ -27,10 +27,11 @@ button{
 	font-size: 17px;
 	text-transform: uppercase;
 	font-weight: 300;
-	box-shadow: 0px 15px 0px 0px rgba(#000000, 0.5);
+	box-shadow:0px 15px 30px 0px rgba(0,0,0,0.3);
 	cursor: pointer;
 	transition: box-shadow 0.4s ease-out;
-	&:hover{top: 5px; box-shadow: 0px 15px 0px 0px rgba(#000000, 0.5);}
+	&:hover{top: 5px; box-shadow: 0px 15px 10px 0px rgba(#000000, 0.5);}
+
 }
 
 body{
@@ -51,13 +52,22 @@ body{
 			button{top:45px; opacity:0; visibility: hidden; transition:visibility 0.1s ease-out 0.4s, top 0.4s ease-out, opacity 0.4s ease-out;}
 			p{opacity:0; visibility: hidden; transition:visibility 0.1s ease-out 0.4s, top 0.4s ease-out, opacity 0.4s ease-out;}
 		}
+		&.still{
+			#prehome{
+				transition: all 0s;
+				a{transition: all 0s;}
+				p{transition: all 0s;}
+				button{transition: all 0s;}
+			}
+		}
 	}
-
 }
 
 .content{
 	width: 100%;
 	max-width: $widthdesktop;
+	padding:10px;
+	box-sizing: border-box;
 }
 
 
@@ -86,10 +96,10 @@ ul{
 
 .gradient-text {
 	background: #53b8d1; /* Old browsers */
-	background: -moz-linear-gradient(325deg,  #53b8d1 0%, #2955a5 50%, #5b21bf 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(325deg,  #53b8d1 0%,#2955a5 50%,#5b21bf 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(125deg,  #53b8d1 0%,#2955a5 50%,#5b21bf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#53b8d1', endColorstr='#5b21bf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	background: -moz-linear-gradient(325deg,  #53b8d1 0%, #2955a5 50%, #5b21bf 100%) !important; /* FF3.6-15 */
+	background: -webkit-linear-gradient(325deg,  #53b8d1 0%,#2955a5 50%,#5b21bf 100%) !important; /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(125deg,  #53b8d1 0%,#2955a5 50%,#5b21bf 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#53b8d1', endColorstr='#5b21bf',GradientType=1 ) !important; /* IE6-9 fallback on horizontal gradient */
    display: inline-block;
    margin: 20px 0;
    font-size: 20px;
