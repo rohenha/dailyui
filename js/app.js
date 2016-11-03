@@ -2,17 +2,9 @@ var dailyApp = angular.module("dailyApp", ['ngRoute']);
 
 dailyApp.config(function ($routeProvider) {
   $routeProvider
-    .when('/', {
-      controller: 'accueilController',
-      templateUrl: 'views/home.html'
-    })
-	.when('/galerie', {
+	.when('/', {
 	  controller: 'galerieController',
 	  templateUrl: 'views/galerie.html'
-	})
-	.when('/contact', {
-	  controller: 'contactController',
-	  templateUrl: 'views/contact.html'
 	})
     .otherwise({
       redirectTo: '/'
@@ -62,26 +54,26 @@ dailyApp.factory('dataService', ['$rootScope','$http', '$q', function ($rootScop
 	};
 }]);
 
-dailyApp.controller('accueilController', ['$scope', 'dataService', function($scope, dataService) {
-  	$scope.message = "Bienvenue sur la page accueil";
-	dataService.getDatas().then(function(data) {
-		$scope.datas = data;
-		$scope.index = $scope.datas.length -1;
-		$scope.project = data[$scope.index];
-	});
-
-	$scope.previousProject = function(){
-		$scope.index > 0 ? $scope.index -- : $scope.index= $scope.datas.length -1 ;
-		$scope.project= $scope.datas[$scope.index];
-	}
-
-	$scope.nextProject = function(){
-		$scope.index+1<$scope.datas.length ? $scope.index ++ : $scope.index = 0;
-		$scope.project= $scope.datas[$scope.index];
-	}
-
-
-}]);
+// dailyApp.controller('accueilController', ['$scope', 'dataService', function($scope, dataService) {
+//   	$scope.message = "Bienvenue sur la page accueil";
+// 	dataService.getDatas().then(function(data) {
+// 		$scope.datas = data;
+// 		$scope.index = $scope.datas.length -1;
+// 		$scope.project = data[$scope.index];
+// 	});
+//
+// 	$scope.previousProject = function(){
+// 		$scope.index > 0 ? $scope.index -- : $scope.index= $scope.datas.length -1 ;
+// 		$scope.project= $scope.datas[$scope.index];
+// 	}
+//
+// 	$scope.nextProject = function(){
+// 		$scope.index+1<$scope.datas.length ? $scope.index ++ : $scope.index = 0;
+// 		$scope.project= $scope.datas[$scope.index];
+// 	}
+//
+//
+// }]);
 
 dailyApp.controller('galerieController', ['$scope', 'dataService', function($scope,dataService) {
   $scope.message = "Bienvenue sur la page de la galerie";
@@ -91,11 +83,26 @@ dailyApp.controller('galerieController', ['$scope', 'dataService', function($sco
 
 }]);
 
-dailyApp.controller('contactController', ['$scope', function($scope) {
-  $scope.message = "Bienvenue sur la page de contact";
-}]);
+// dailyApp.controller('contactController', ['$scope', function($scope) {
+//   $scope.message = "Bienvenue sur la page de contact";
+// }]);
 
 
 $(document).ready(function() {
+	$(document).scroll(function(){
+            var scrollTop = $(this).scrollTop();
+            if(scrollTop > 150){
+                $("header").addClass('fixed');
+				$('#btnUp').addClass('active');
+            }else {
+                $("header").removeClass('fixed');
+				$('#btnUp').removeClass('active');
+            }
+        });
 
+		$('#btnUp').on('click', function(){
+			$('html, body').animate({
+				scrollTop:0
+			}, 'slow');
+		});
 });

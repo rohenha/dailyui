@@ -64,34 +64,57 @@
 
 header{
 	width: 100%;
-	height: 60px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
+	margin: 0 auto;
 	z-index: 10;
-	background-color: #ffffff;
-	box-shadow: 0 1px 2px rgba(0,0,0,.1);
+	padding: 10px 0;
+	min-height: 150px;
 	box-sizing: border-box;
+	transition:all 0.3s ease-out;
+	&.fixed{
+		.content{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			max-width: inherit;
+			padding: 20px;
+			background-color: rgba($color1,1);
+			flex-direction: row;
+			justify-content: space-between;
+			box-shadow: 0 1px 2px rgba(0,0,0,.1);
+			transition:all 0.3s ease-out;
+		}
+		.contentText{
+			opacity: 0;
+			display: none;
+			visibility: hidden;
+		}
+	}
 	.content{
+		position: relative;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: center;
 		flex-wrap: wrap;
-		height: 100%;
+		box-sizing: border-box;
+		margin: 0 auto;
+		padding: 0;
+		width: 100%;
+		background-color: rgba($color1, 0);
+		transition:all 0s ease-out;
 	}
 	img{
 		width: auto;
-		height: 100%;
+		height: 100px;
 	}
-	#homeLink{
-		height: 80%;
+	.contentText{
+		margin: 10px 0;
+		transition:all 0.3s ease-out;
+	}
+	p{
+		color: $color3;
+		text-align: center;
 	}
 	ul{
 		a{
@@ -101,20 +124,74 @@ header{
 			box-sizing: border-box;
 			transition: all 0.3s ease-out;
 			display: inline-block;
-		    padding: 0 12px;
+			padding: 0 10px;
 		    text-decoration: none;
 		    outline: 0;
-		    font-size: 13px;
+		    font-size: 15px;
 		    font-weight: normal;
 		    -webkit-tap-highlight-color: transparent;
 			&.active{
-				background: darken($color1, 4%); /* Old browsers */
 				color: $color4;
 			}
 			&:hover{
-				background: darken($color1, 4%); /* Old browsers */
 				color: $color4;
 			}
+		}
+	}
+}
+
+
+.backCircles{
+	position: absolute;
+	top: -90%;
+	left: 0;
+	width: 100%;
+
+	&:before{
+		content: "";
+		display: block;
+		width: 100%;
+		padding-top: 100%;
+	}
+	.circle{
+		position: absolute;
+		mix-blend-mode:exclusion;
+		border-radius: 50%;
+		&.one{
+			width: 100%;
+			height: 100%;
+			top:0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			background-color: rgba($color5, 0.1);
+		}
+		&.two{
+			width: 70%;
+			height: 70%;
+			top:0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			background-color: rgba($color5, 0.1);
+		}
+		&.three{
+			width: 40%;
+			height: 40%;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			background-color: rgba($color5, 0.1);
+		}
+		&.four{
+			width: 20%;
+			height: 20%;
+			left: 10%;
+			bottom: 10%;
+			margin: auto;
+			background-color: rgba($color5, 0.1);
 		}
 	}
 }

@@ -65,8 +65,8 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   overflow: hidden;
   background-color: #fefefe; }
   body.open {
@@ -237,6 +237,43 @@ ul {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b53eb5', endColorstr='#662d91',GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */ }
 
+#btnUp {
+  position: fixed;
+  cursor: pointer;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(75, 79, 86, 0.4);
+  border-radius: 50%;
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+  #btnUp.active {
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+    visibility: visible;
+    opacity: 1; }
+  #btnUp span {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-top: 2px solid #fefefe;
+    border-left: 2px solid #fefefe;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg); }
+
 #prehome {
   position: fixed;
   top: 0;
@@ -312,54 +349,72 @@ ul {
 
 header {
   width: 100%;
-  height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  margin: 0 auto;
   z-index: 10;
-  background-color: #ffffff;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  min-height: 150px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
-  header .content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+          box-sizing: border-box;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+  header.fixed .content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: inherit;
+    padding: 20px;
+    background-color: #fefefe;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out; }
+  header.fixed .contentText {
+    opacity: 0;
+    display: none;
+    visibility: hidden; }
+  header .content {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    height: 100%; }
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    background-color: rgba(254, 254, 254, 0);
+    -webkit-transition: all 0s ease-out;
+    transition: all 0s ease-out; }
   header img {
     width: auto;
-    height: 100%; }
-  header #homeLink {
-    height: 80%; }
+    height: 100px; }
+  header .contentText {
+    margin: 10px 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out; }
+  header p {
+    color: #2955a5;
+    text-align: center; }
   header ul a {
     color: #2955a5;
     line-height: 60px;
@@ -369,20 +424,63 @@ header {
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
     display: inline-block;
-    padding: 0 12px;
+    padding: 0 10px;
     text-decoration: none;
     outline: 0;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: normal;
     -webkit-tap-highlight-color: transparent; }
     header ul a.active {
-      background: #f4f4f4;
-      /* Old browsers */
       color: #5b21bf; }
     header ul a:hover {
-      background: #f4f4f4;
-      /* Old browsers */
       color: #5b21bf; }
+
+.backCircles {
+  position: absolute;
+  top: -90%;
+  left: 0;
+  width: 100%; }
+  .backCircles:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 100%; }
+  .backCircles .circle {
+    position: absolute;
+    mix-blend-mode: exclusion;
+    border-radius: 50%; }
+    .backCircles .circle.one {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: rgba(75, 79, 86, 0.1); }
+    .backCircles .circle.two {
+      width: 70%;
+      height: 70%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: rgba(75, 79, 86, 0.1); }
+    .backCircles .circle.three {
+      width: 40%;
+      height: 40%;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: rgba(75, 79, 86, 0.1); }
+    .backCircles .circle.four {
+      width: 20%;
+      height: 20%;
+      left: 10%;
+      bottom: 10%;
+      margin: auto;
+      background-color: rgba(75, 79, 86, 0.1); }
 
 #accueil {
   height: 100%;
@@ -544,8 +642,7 @@ header {
             justify-content: flex-start;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    position: relative;
-    margin-top: 150px; }
+    position: relative; }
     #galerie ul li {
       width: 33.333333%;
       padding: 30px 10px;
@@ -555,6 +652,12 @@ header {
       z-index: 1;
       -webkit-perspective: 600px;
               perspective: 600px; }
+      @media screen and (max-width: 700px) {
+        #galerie ul li {
+          width: 50%; } }
+      @media screen and (max-width: 450px) {
+        #galerie ul li {
+          width: 100%; } }
       #galerie ul li#headerGalerie {
         width: 100%;
         position: absolute;
@@ -678,7 +781,7 @@ header {
         padding: 10px 0;
         display: inline-block;
         z-index: 5;
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 800;
         overflow: hidden;
         -webkit-box-sizing: border-box;

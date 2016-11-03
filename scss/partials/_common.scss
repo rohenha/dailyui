@@ -11,6 +11,7 @@ p, a{
 html,body{
 	width: 100%;
 	height: 100%;
+	// background-color: $color5;
 }
 
 img{
@@ -39,7 +40,7 @@ body{
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	overflow: hidden;
 	background-color: $color1;
 	&.open{
@@ -156,5 +157,39 @@ ul{
 		background: -webkit-radial-gradient(center, ellipse cover,  #b53eb5 0%,#662d91 100%); /* Chrome10-25,Safari5.1-6 */
 		background: radial-gradient(ellipse at center,  #b53eb5 0%,#662d91 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b53eb5', endColorstr='#662d91',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	}
+}
+
+
+#btnUp{
+	position: fixed;
+	cursor: pointer;
+	bottom: 30px;
+	right: 30px;
+	width: 60px;
+	height: 60px;
+	background-color: rgba($color5, 0.4);
+	border-radius: 50%;
+	transform: rotate(-90deg);
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease-out;
+	&.active{
+		transform: rotate(0deg);
+		visibility: visible;
+		opacity: 1;
+	}
+	span{
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 10px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		border-top: 2px solid $color1;
+		border-left: 2px solid $color1;
+		transform: rotate(45deg);
 	}
 }
