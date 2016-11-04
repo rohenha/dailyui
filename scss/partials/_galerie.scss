@@ -16,10 +16,10 @@
 			position: relative;
 			z-index: 1;
 			perspective: 600px;
-			@media screen and (max-width: 700px) {
+			@media screen and (max-width: $widthtablet) {
 				width: 50%;
 			}
-			@media screen and (max-width: 450px) {
+			@media screen and (max-width: $widthmobile) {
 				width: 100%;
 			}
 
@@ -39,7 +39,7 @@
 				box-shadow: 0 20px 20px rgba(0,0,0,.08);
 				position: relative;
 				top: 0;
-				background-color: #fff;
+				// background-color: #fff;
 				overflow: hidden;
 				border-radius:4px;
 				transition: all 0.3s ease-out;
@@ -52,31 +52,39 @@
 					z-index: 1000;
 					transform: translateY(0) rotateX(3deg);
 					span.day{
-						transform: scale(1.6);
+						transform: scale(1.2);
 					}
 				}
 				.footer{
-					border-top: 1px solid darken(#ffffff,5%);
+					border-top: 1px solid rgba(lighten(#000000,5%), 0.1);
 					padding: 10px 0;
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					justify-content: flex-start;
+					flex-wrap: wrap;
+					@media screen and (max-width: 768px) {
+						justify-content: center;
+					}
 					p{
 						padding: 3px 5px;
 						margin: 4px;
 						border-radius: 3px;
-						background-color: darken(#ffffff, 5%);
-						color:darken(#ffffff,25%);
+						font-size: 14px;
+						background-color: rgba(lighten(#000000,5%), 0.1);
+						color:rgba(lighten(#fff,5%), 0.5);
 					}
 				}
 			}
-			.gradient{
+			.bg{
 				position: relative;
 				z-index: 5;
 				width: 100%;
 				height: 300px;
 				overflow: hidden;
+				@media screen and (max-width: $widthmobile) {
+					height: 200px;
+				}
 
 				a{
 					display: block;
@@ -105,7 +113,7 @@
 				}
 				span.day{
 					position: relative;
-					color: darken(#ffffff,5%);
+					color: rgba(lighten(#000000,5%), 0.05);
 					z-index: -1;
 					mix-blend-mode : multiply;
 					font-size: 140px;
@@ -117,13 +125,14 @@
 					text-decoration: none;
 					transform: scale(1);
 					transition: all 0.3s ease-out;
+
 				}
 
 			}
 			h2{
 					text-align: center;
 					position: relative;
-					color: $color5;
+					color: rgba(lighten(#fff,5%), 0.5);
 					font-family: $opensans;
 					text-align: left;
 					padding:10px 0;
@@ -137,6 +146,13 @@
 					flex-direction: row;
 					align-items: center;
 					justify-content: space-between;
+					@media screen and (max-width: $widthtablet) {
+						text-align: center;
+						justify-content: center;
+						span{
+							display: none;
+						}
+					}
 			}
 		}
 	}

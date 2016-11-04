@@ -439,7 +439,10 @@ header {
   position: absolute;
   top: -90%;
   left: 0;
-  width: 100%; }
+  right: 0;
+  margin: auto;
+  width: 100%;
+  max-width: 1200px; }
   .backCircles:before {
     content: "";
     display: block;
@@ -652,10 +655,10 @@ header {
       z-index: 1;
       -webkit-perspective: 600px;
               perspective: 600px; }
-      @media screen and (max-width: 700px) {
+      @media screen and (max-width: 768px) {
         #galerie ul li {
           width: 50%; } }
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 400px) {
         #galerie ul li {
           width: 100%; } }
       #galerie ul li#headerGalerie {
@@ -673,7 +676,6 @@ header {
                 box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
         position: relative;
         top: 0;
-        background-color: #fff;
         overflow: hidden;
         border-radius: 4px;
         -webkit-transition: all 0.3s ease-out;
@@ -693,11 +695,11 @@ header {
           -webkit-transform: translateY(0) rotateX(3deg);
                   transform: translateY(0) rotateX(3deg); }
           #galerie ul li .card:hover span.day {
-            -webkit-transform: scale(1.6);
-                -ms-transform: scale(1.6);
-                    transform: scale(1.6); }
+            -webkit-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                    transform: scale(1.2); }
         #galerie ul li .card .footer {
-          border-top: 1px solid #f2f2f2;
+          border-top: 1px solid rgba(13, 13, 13, 0.1);
           padding: 10px 0;
           display: -webkit-box;
           display: -ms-flexbox;
@@ -711,20 +713,31 @@ header {
                   align-items: center;
           -webkit-box-pack: start;
               -ms-flex-pack: start;
-                  justify-content: flex-start; }
+                  justify-content: flex-start;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; }
+          @media screen and (max-width: 768px) {
+            #galerie ul li .card .footer {
+              -webkit-box-pack: center;
+                  -ms-flex-pack: center;
+                      justify-content: center; } }
           #galerie ul li .card .footer p {
             padding: 3px 5px;
             margin: 4px;
             border-radius: 3px;
-            background-color: #f2f2f2;
-            color: #bfbfbf; }
-      #galerie ul li .gradient {
+            font-size: 14px;
+            background-color: rgba(13, 13, 13, 0.1);
+            color: rgba(255, 255, 255, 0.5); }
+      #galerie ul li .bg {
         position: relative;
         z-index: 5;
         width: 100%;
         height: 300px;
         overflow: hidden; }
-        #galerie ul li .gradient a {
+        @media screen and (max-width: 400px) {
+          #galerie ul li .bg {
+            height: 200px; } }
+        #galerie ul li .bg a {
           display: block;
           width: 100%;
           height: 100%;
@@ -743,7 +756,7 @@ header {
                   justify-content: center;
           position: relative;
           text-decoration: none; }
-        #galerie ul li .gradient img {
+        #galerie ul li .bg img {
           width: 80%;
           height: 80%;
           -o-object-fit: contain;
@@ -755,9 +768,9 @@ header {
           left: 0;
           right: 0;
           margin: auto; }
-        #galerie ul li .gradient span.day {
+        #galerie ul li .bg span.day {
           position: relative;
-          color: #f2f2f2;
+          color: rgba(13, 13, 13, 0.05);
           z-index: -1;
           mix-blend-mode: multiply;
           font-size: 140px;
@@ -775,7 +788,7 @@ header {
       #galerie ul li h2 {
         text-align: center;
         position: relative;
-        color: #4b4f56;
+        color: rgba(255, 255, 255, 0.5);
         font-family: "Open Sans", sans-serif;
         text-align: left;
         padding: 10px 0;
@@ -799,5 +812,13 @@ header {
         -webkit-box-pack: justify;
             -ms-flex-pack: justify;
                 justify-content: space-between; }
+        @media screen and (max-width: 768px) {
+          #galerie ul li h2 {
+            text-align: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center; }
+            #galerie ul li h2 span {
+              display: none; } }
 
 /*# sourceMappingURL=../css/master.css.map */

@@ -1,38 +1,35 @@
 [
 	{
 		"jour" : "1",
-		"nom" : "Le roi Lion",
+		"nom" : "The Lion King",
 		"imgpng" : "content/uploads/lionking.png",
 		"imgjpg" : "content/uploads/lionking.jpg",
 		"gradient" : "red",
 		"tags" : {
 			"1": "The Lion King",
-			"2": "Disney",
-			"3": "Flat Design"
+			"2": "Flat Design"
 		}
 	},
 	{
 		"jour" : "2",
-		"nom" : "La reine des neiges",
+		"nom" : "Frozen",
 		"imgpng" : "content/uploads/snowqueen.png",
 		"imgjpg" : "content/uploads/snowqueen.jpg",
 		"gradient" : "blue",
 		"tags" : {
 			"1": "Snow Queen",
-			"2": "Disney",
-			"3": "Flat Design"
+			"2": "Flat Design"
 		}
 	},
 	{
 		"jour" : "3",
-		"nom" : "Là haut",
+		"nom" : "Up",
 		"imgpng" : "content/uploads/updown.png",
 		"imgjpg" : "content/uploads/updown.jpg",
 		"gradient" : "blue",
 		"tags" : {
-			"1": "Up Down",
-			"2": "Disney",
-			"3": "Flat Design"
+			"1": "Up",
+			"2": "Flat Design"
 		}
 	},
 	{
@@ -43,8 +40,7 @@
 		"gradient" : "grey",
 		"tags" : {
 			"1": "Donald Duck",
-			"2": "Disney",
-			"3": "Flat Design"
+			"2": "Flat Design"
 		}
 	}
 ]

@@ -5,8 +5,8 @@
 			<h1>Galerie</h1>
 		</li> -->
 		<li ng-repeat="project in datas">
-			<div class="card">
-				<div class="gradient {{project.gradient}}">
+			<div class="card gradient {{project.gradient}}">
+				<div class="bg ">
 					<a class="image-popup-vertical-fit" href="{{project.imgjpg}}" data-source="{{project.imgjpg}}">
 						<img ng-src="{{project.imgpng}}" alt="{{project.nom}}">
 						 <span class="day">#{{$index + 1}}</span>
