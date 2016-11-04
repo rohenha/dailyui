@@ -1,18 +1,23 @@
 
 <div id="galerie" class="content">
-	<div class="gradient-text">
-		<h1>Galerie</h1>
-	</div>
 	<ul>
+		<!-- <li id="headerGalerie" class="gradient-text">
+			<h1>Galerie</h1>
+		</li> -->
 		<li ng-repeat="project in datas">
-			<div class="card">
-				<div class="zoom-gallery gradient {{project.gradient}}">
-					<a href="{{project.img}}" data-source="{{project.img}}">
-						<img ng-src="{{project.img}}" alt="{{project.nom}}">
+			<div class="card gradient {{project.gradient}}">
+				<div class="bg ">
+					<a class="image-popup-vertical-fit" href="{{project.imgjpg}}" data-source="{{project.imgjpg}}">
+						<img ng-src="{{project.imgpng}}" alt="{{project.nom}}">
+						 <span class="day">#{{$index + 1}}</span>
 					</a>
 				</div>
 				<div class="content">
-					<h2 data-title="{{project.nom}}">{{project.nom}} <span data-day="#{{$index + 1}}">#{{$index + 1}}</span></h2>
+					<h2 data-title="{{project.nom}}">{{project.nom}} <span>#{{$index + 1}}</span></h2>
+					<div class="footer">
+						<p ng-repeat="tag in project.tags">{{tag}}</p>
+					</div>
+
 				</div>
 			</div>
 		</li>
