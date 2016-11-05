@@ -70,6 +70,9 @@ header{
 	min-height: 150px;
 	box-sizing: border-box;
 	transition:all 0.3s ease-out;
+	h1{
+		font-size: 0;
+	}
 	&.fixed{
 		.content{
 			position: fixed;

@@ -357,6 +357,8 @@ header {
           box-sizing: border-box;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
+  header h1 {
+    font-size: 0; }
   header.fixed .content {
     position: fixed;
     top: 0;
@@ -516,7 +518,6 @@ header {
       padding: 30px 10px;
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
-      position: relative;
       z-index: 1;
       -webkit-perspective: 600px;
               perspective: 600px; }
@@ -526,20 +527,9 @@ header {
       @media screen and (max-width: 400px) {
         #galerie ul li {
           width: 100%; } }
-      #galerie ul li#headerGalerie {
-        width: 100%;
-        position: absolute;
-        top: -140px;
-        left: 0;
-        z-index: -1;
-        font-size: 110px;
-        padding: 0;
-        font-weight: 900;
-        text-align: center; }
       #galerie ul li .card {
         -webkit-box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
                 box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
-        position: relative;
         top: 0;
         cursor: pointer;
         overflow: hidden;
@@ -741,8 +731,9 @@ header {
       transition: transform 0.3s ease-out 0.3s, opacity 0.15s ease-out 0.3s, visibility 0.15s ease-out 0.3s;
       transition: transform 0.3s ease-out 0.3s, opacity 0.15s ease-out 0.3s, visibility 0.15s ease-out 0.3s, -webkit-transform 0.3s ease-out 0.3s; }
   #lightbox .lightbox-content {
-    max-width: 1920px;
-    max-height: 1080px;
+    max-width: 1300px;
+    max-height: 800px;
+    width: 100%;
     position: relative; }
   #lightbox h3 {
     color: #fefefe;
@@ -772,6 +763,9 @@ header {
     opacity: 0;
     visibility: hidden;
     width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
     -webkit-transform: scale(0.7);
         -ms-transform: scale(0.7);
             transform: scale(0.7);

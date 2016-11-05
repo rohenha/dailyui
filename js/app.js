@@ -1,16 +1,16 @@
-var dailyApp = angular.module("dailyApp", ['ngRoute']);
+var dailyApp = angular.module("dailyApp", []);
 
-dailyApp.config(function ($routeProvider) {
-  $routeProvider
-	.when('/', {
-	  controller: 'HomeController',
-	  templateUrl: 'views/galerie.html'
-  })
-  .when('/galerie', {
-	controller: 'HomeController',
-	templateUrl: 'views/galerie.html'
-  });
-});
+// dailyApp.config(function ($routeProvider) {
+//   $routeProvider
+// 	.when('/', {
+// 	  controller: 'HomeController',
+// 	  templateUrl: 'views/galerie.html'
+//   })
+//   .when('/galerie', {
+// 	controller: 'HomeController',
+// 	templateUrl: 'views/galerie.html'
+//   });
+// });
 
 dailyApp.run(function($rootScope, $templateCache) {
 	$templateCache.removeAll();
@@ -50,9 +50,10 @@ dailyApp.filter('reverse', function() {
 dailyApp.controller('HomeController', ['$scope', 'dataService',function($scope,dataService) {
 	dataService.getDatas().then(function(data) { $scope.datas = data; });
 	$scope.lightbox=function(project){
-		$('#lightbox img').attr('src', project.imgjpg);
-		$('#lightbox h3').empty().append(project.nom);
-		$('#lightbox').addClass("active");
+			$('#lightbox img').attr('src', project.imgjpg);
+			$('#lightbox h3').empty().append(project.nom);
+			$('#lightbox img').attr('alt',project.nom);
+			$('#lightbox').addClass("active");
 	};
 	$scope.closeLightbox=function(){
 		$('#lightbox').removeClass('active');

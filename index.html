@@ -9,17 +9,21 @@
 	<script src="https://use.fontawesome.com/c7e4e4ca45.js"></script>
 	<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
 	<meta http-equiv="CACHE-CONTROL" content="NO-STORE">
-	<title>Daily Disney </title>
+	<link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+	<title>Daily Disney | Romain Breton</title>
+	<meta name="description" content="Daily Disney is a project inspired by DailyUi. With my love of Disney animated movies I wanted to challenge myself on something different. My goal is to illustrate all Disney main character from Disney Universe." />
+	<meta name="keywords" content="Disney, Flat Design, Daily Disney, Daily, Daily Ui, Illustration, Walt Disney " />
 </head>
 <body>
 
 	<header>
 		<div class="content">
-			<a href="#/" id="homeLink"><img src="imgs/logoViolet.png" alt="Ui2day"></a>
+			<h1>Daily Disney <img src="imgs/logoViolet.png" alt="Daily Disney"></h1>
 			<div class="contentText">
-				<p>A beginning of a new adventure. With my love of Disney animated movies, I wanted to realize a project with this fabulous universe.</p>
-				<p>I took inspiration from <a href="https://twitter.com/Dimfolio" target="_blank">@Dimfolio</a> and his <a href="https://www.youtube.com/watch?v=LTrzSSf0YlA" target='_blank'>"A Flat Animation"</a> Project. My goal is to illustrate all main characters from all Disney animated movies in Flat design. </p>
-				<p>You can follow my updates on my social medias.</p>
+				<p>With the success of Daily Ui, i wanted to get into a new Challenge. With <strong>my love of Disney animated movies</strong>, I wanted to realize a project with this fabulous universe.</p>
+				<p>I took inspiration from <a href="https://twitter.com/Dimfolio" target="_blank">@Dimfolio</a> and his <a href="https://www.youtube.com/watch?v=LTrzSSf0YlA" target='_blank'>"A Flat Animation"</a> Project. My goal is to <strong>illustrate all main characters</strong> from Disney animated movies in <strong>Flat design</strong>. </p>
+				<p>You can follow my updates on my social medias like Twitter and Dribbble.</p>
 			</div>
 			<ul class="socialMedias">
 				<li><a href="mailto:romain.breton.pro@gmail.com" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
@@ -41,11 +45,39 @@
 
 	<span id="btnUp"><span class="chevron up"></span></span>
 
-	<div class="app" ng-view></div>
+	<div class="app">
+		<div id="galerie" class="content" ng-controller="HomeController">
+			<ul>
+				<li id="{{$index + 1}}" ng-repeat="project in datas | reverse" >
+					<div class="card project gradient {{project.gradient}}" ng-click="lightbox(project)">
+						<div class="bg ">
+							<div class="image-popup" >
+								<img ng-src="{{project.imgpng}}" alt="{{project.nom}}">
+								 <span class="day">#{{project.jour}}</span>
+							</div>
+						</div>
+						<div class="content">
+							<h2 data-title="{{project.nom}}">{{project.nom}} <span>#{{project.jour}}</span></h2>
+							<div class="footer">
+								<p ng-repeat="tag in project.tags">{{tag}}</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div id="lightbox">
+				<div class="lightbox-content">
+					<img id="lightboxImg" src="content/uploads/lionking.jpg" alt="">
+					<h3>The Lion King</h3>
+					<div class="cross" ng-click='closeLightbox()'></div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div id="prehome" class="load">
-		<a href="#"><img src="imgs/logo.png" alt="DailyUi"></a>
-		<p>To improve our creativity ourselves, we decided together to realise the daily UI challenge.</p>
+		<a href="#"><img src="imgs/logo.png" alt="Daily Disney"></a>
+		<p>Daily Disney is a challenge like Daily Ui. My goal is to illustrate all Disney Main characters in Flat Design style every day. I will start with Mickey Mouse, the iconic Disney character, and i will finish with the last Disney movie : Moana</p>
 		<button ng-click="prehome()">Let's Start</button>
 	</div>
 
