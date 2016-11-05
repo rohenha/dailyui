@@ -21,7 +21,7 @@
 
 p, a {
   font-family: "Open Sans", sans-serif;
-  color: #b2b2b2; }
+  color: #2955a5; }
 
 html, body {
   width: 100%;
@@ -361,9 +361,11 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    min-height: initial;
+    height: 70px;
     width: 100%;
     max-width: inherit;
-    padding: 20px;
+    padding: 10px 30px;
     background-color: #fefefe;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -376,6 +378,10 @@ header {
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out; }
+    header.fixed .content > a {
+      height: 100%; }
+      header.fixed .content > a img {
+        height: 100%; }
   header.fixed .contentText {
     opacity: 0;
     display: none;
@@ -485,147 +491,6 @@ header {
       margin: auto;
       background-color: rgba(75, 79, 86, 0.1); }
 
-#accueil {
-  height: 100%;
-  width: 100%;
-  overflow: hidden; }
-  #accueil #project {
-    height: 100%;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-    #accueil #project img {
-      width: 100%;
-      height: 100%;
-      max-width: 400px;
-      -o-object-fit: contain;
-         object-fit: contain; }
-    #accueil #project .projectContent {
-      width: 100%;
-      padding: 0 0 0 10px;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      height: 100%; }
-      #accueil #project .projectContent h2 {
-        margin: 0;
-        font-family: "Open Sans", sans-serif;
-        color: #fefefe;
-        font-weight: bold; }
-      #accueil #project .projectContent p {
-        color: #fefefe; }
-
-#previous {
-  position: fixed;
-  top: 50%;
-  left: -20px;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  display: block;
-  background: #eaeaea;
-  /* Old browsers */
-  border: #d8d8d8;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out; }
-  #previous::before {
-    content: "";
-    display: block;
-    width: 30px;
-    height: 30px;
-    position: relative;
-    left: 10px;
-    -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    border-left: 2px solid #2955a5;
-    border-top: 2px solid #2955a5;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out; }
-  #previous:hover {
-    left: 0; }
-    #previous:hover::before {
-      left: 0; }
-
-#next {
-  position: fixed;
-  top: 50%;
-  right: -20px;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  display: block;
-  background: #eaeaea;
-  /* Old browsers */
-  border: #d8d8d8;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out; }
-  #next::before {
-    content: "";
-    display: block;
-    width: 30px;
-    height: 30px;
-    position: relative;
-    right: 10px;
-    -webkit-transform: rotate(225deg);
-        -ms-transform: rotate(225deg);
-            transform: rotate(225deg);
-    border-left: 2px solid #2955a5;
-    border-bottom: 2px solid #2955a5;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out; }
-  #next:hover {
-    right: 0; }
-    #next:hover::before {
-      right: 0; }
-
 #galerie {
   width: 100%; }
   #galerie ul {
@@ -676,6 +541,7 @@ header {
                 box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
         position: relative;
         top: 0;
+        cursor: pointer;
         overflow: hidden;
         border-radius: 4px;
         -webkit-transition: all 0.3s ease-out;
@@ -737,7 +603,7 @@ header {
         @media screen and (max-width: 400px) {
           #galerie ul li .bg {
             height: 200px; } }
-        #galerie ul li .bg a {
+        #galerie ul li .bg div.image-popup {
           display: block;
           width: 100%;
           height: 100%;
@@ -820,5 +686,138 @@ header {
                     justify-content: center; }
             #galerie ul li h2 span {
               display: none; } }
+
+#lightbox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(75, 79, 86, 0);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out 0.3s;
+  transition: all 0.3s ease-out 0.3s; }
+  #lightbox.active {
+    background-color: rgba(75, 79, 86, 0.7);
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out; }
+    #lightbox.active h3 {
+      -webkit-transform: translateY(0px);
+          -ms-transform: translateY(0px);
+              transform: translateY(0px);
+      opacity: 1;
+      -webkit-transition: all 0.3s ease-out 0.4s;
+      transition: all 0.3s ease-out 0.4s; }
+    #lightbox.active img {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transform: scale(1);
+          -ms-transform: scale(1);
+              transform: scale(1);
+      -webkit-transition: opacity 0.15s ease-out 0.3s, visibility 0.15s ease-out 0.3s, -webkit-transform 0.3s ease-out 0.3s;
+      transition: opacity 0.15s ease-out 0.3s, visibility 0.15s ease-out 0.3s, -webkit-transform 0.3s ease-out 0.3s;
+      transition: transform 0.3s ease-out 0.3s, opacity 0.15s ease-out 0.3s, visibility 0.15s ease-out 0.3s;
+      transition: transform 0.3s ease-out 0.3s, opacity 0.15s ease-out 0.3s, visibility 0.15s ease-out 0.3s, -webkit-transform 0.3s ease-out 0.3s; }
+  #lightbox .lightbox-content {
+    max-width: 1920px;
+    max-height: 1080px;
+    position: relative; }
+  #lightbox h3 {
+    color: #fefefe;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    display: inline-block;
+    z-index: 5;
+    font-size: 22px;
+    font-weight: 800;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+            transform: translateY(20px);
+    text-transform: uppercase; }
+  #lightbox img {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    -webkit-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+            transform: scale(0.7);
+    -webkit-transition: opacity 0.15s ease-out 0.15s, visibility 0.15s ease-out 0.15s, -webkit-transform 0.3s ease-out;
+    transition: opacity 0.15s ease-out 0.15s, visibility 0.15s ease-out 0.15s, -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, opacity 0.15s ease-out 0.15s, visibility 0.15s ease-out 0.15s;
+    transition: transform 0.3s ease-out, opacity 0.15s ease-out 0.15s, visibility 0.15s ease-out 0.15s, -webkit-transform 0.3s ease-out; }
+  #lightbox div.cross {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fefefe;
+    cursor: pointer; }
+    #lightbox div.cross:hover::before {
+      -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+              transform: rotate(0deg); }
+    #lightbox div.cross:hover::after {
+      -webkit-transform: rotate(-90deg);
+          -ms-transform: rotate(-90deg);
+              transform: rotate(-90deg); }
+    #lightbox div.cross::before, #lightbox div.cross::after {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 2px;
+      position: absolute;
+      background-color: #2955a5;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      border-radius: 30px;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out; }
+    #lightbox div.cross::before {
+      -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+              transform: rotate(45deg); }
+    #lightbox div.cross::after {
+      -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+              transform: rotate(-45deg); }
 
 /*# sourceMappingURL=../css/master.css.map */

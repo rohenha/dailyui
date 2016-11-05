@@ -3,41 +3,28 @@ var dailyApp = angular.module("dailyApp", ['ngRoute']);
 dailyApp.config(function ($routeProvider) {
   $routeProvider
 	.when('/', {
-	  controller: 'galerieController',
+	  controller: 'HomeController',
 	  templateUrl: 'views/galerie.html'
-	})
-    .otherwise({
-      redirectTo: '/'
-    });
+  })
+  .when('/galerie', {
+	controller: 'HomeController',
+	templateUrl: 'views/galerie.html'
+  });
 });
 
 dailyApp.run(function($rootScope, $templateCache) {
-      $templateCache.removeAll();
-	  var isshow = localStorage.getItem('isshow');
-	  console.log(isshow);
-      if (isshow != null) {
+	$templateCache.removeAll();
+	var isshow = localStorage.getItem('isshow');
+
+	if (isshow != null) {
 		console.log(localStorage.getItem('isshow'));
 		$('body').addClass('open');
 		$('body').addClass('still');
+	}else{  localStorage.setItem('isshow', 1); }
 
-	  }else{
-		  localStorage.setItem('isshow', 1);
-	  }
-   $rootScope.prehome = function(){
-		$('body').addClass('open');
-   };
-   $('.image-popup-vertical-fit').magnificPopup({
-		   type: 'image',
-		   closeOnContentClick: true,
-		   mainClass: 'mfp-img-mobile',
-		   image: {
-			   verticalFit: true
-		   }
+   $rootScope.prehome = function(){ $('body').addClass('open'); };
 
-	   });
-
-
-   $('#prehome.load').removeClass('load');
+	$('#prehome.load').removeClass('load');
 });
 
 dailyApp.factory('dataService', ['$rootScope','$http', '$q', function ($rootScope, $http, $q) {
@@ -54,55 +41,41 @@ dailyApp.factory('dataService', ['$rootScope','$http', '$q', function ($rootScop
 	};
 }]);
 
-// dailyApp.controller('accueilController', ['$scope', 'dataService', function($scope, dataService) {
-//   	$scope.message = "Bienvenue sur la page accueil";
-// 	dataService.getDatas().then(function(data) {
-// 		$scope.datas = data;
-// 		$scope.index = $scope.datas.length -1;
-// 		$scope.project = data[$scope.index];
-// 	});
-//
-// 	$scope.previousProject = function(){
-// 		$scope.index > 0 ? $scope.index -- : $scope.index= $scope.datas.length -1 ;
-// 		$scope.project= $scope.datas[$scope.index];
-// 	}
-//
-// 	$scope.nextProject = function(){
-// 		$scope.index+1<$scope.datas.length ? $scope.index ++ : $scope.index = 0;
-// 		$scope.project= $scope.datas[$scope.index];
-// 	}
-//
-//
-// }]);
+dailyApp.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
 
-dailyApp.controller('galerieController', ['$scope', 'dataService', function($scope,dataService) {
-  $scope.message = "Bienvenue sur la page de la galerie";
-  dataService.getDatas().then(function(data) {
-	  $scope.datas = data;
-  });
-
+dailyApp.controller('HomeController', ['$scope', 'dataService',function($scope,dataService) {
+	dataService.getDatas().then(function(data) { $scope.datas = data; });
+	$scope.lightbox=function(project){
+		$('#lightbox img').attr('src', project.imgjpg);
+		$('#lightbox h3').empty().append(project.nom);
+		$('#lightbox').addClass("active");
+	};
+	$scope.closeLightbox=function(){
+		$('#lightbox').removeClass('active');
+	};
 }]);
-
-// dailyApp.controller('contactController', ['$scope', function($scope) {
-//   $scope.message = "Bienvenue sur la page de contact";
-// }]);
 
 
 $(document).ready(function() {
 	$(document).scroll(function(){
-            var scrollTop = $(this).scrollTop();
-            if(scrollTop > 150){
-                $("header").addClass('fixed');
-				$('#btnUp').addClass('active');
-            }else {
-                $("header").removeClass('fixed');
-				$('#btnUp').removeClass('active');
-            }
-        });
+        var scrollTop = $(this).scrollTop();
+        if(scrollTop > 150){
+            $("header").addClass('fixed');
+			$('#btnUp').addClass('active');
+        }else {
+            $("header").removeClass('fixed');
+			$('#btnUp').removeClass('active');
+        }
+    });
 
-		$('#btnUp').on('click', function(){
-			$('html, body').animate({
-				scrollTop:0
-			}, 'slow');
-		});
+	$('#btnUp').on('click', function(){
+		$('html, body').animate({
+			scrollTop:0
+		}, 'slow');
+	});
+
 });

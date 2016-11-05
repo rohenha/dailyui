@@ -1,19 +1,16 @@
 
 <div id="galerie" class="content">
 	<ul>
-		<!-- <li id="headerGalerie" class="gradient-text">
-			<h1>Galerie</h1>
-		</li> -->
-		<li ng-repeat="project in datas">
-			<div class="card gradient {{project.gradient}}">
+		<li id="{{$index + 1}}" ng-repeat="project in datas | reverse" >
+			<div class="card project gradient {{project.gradient}}" ng-click="lightbox(project)">
 				<div class="bg ">
-					<a class="image-popup-vertical-fit" href="{{project.imgjpg}}" data-source="{{project.imgjpg}}">
+					<div class="image-popup" >
 						<img ng-src="{{project.imgpng}}" alt="{{project.nom}}">
-						 <span class="day">#{{$index + 1}}</span>
-					</a>
+						 <span class="day">#{{project.jour}}</span>
+					</div>
 				</div>
 				<div class="content">
-					<h2 data-title="{{project.nom}}">{{project.nom}} <span>#{{$index + 1}}</span></h2>
+					<h2 data-title="{{project.nom}}">{{project.nom}} <span>#{{project.jour}}</span></h2>
 					<div class="footer">
 						<p ng-repeat="tag in project.tags">{{tag}}</p>
 					</div>
@@ -22,4 +19,11 @@
 			</div>
 		</li>
 	</ul>
+	<div id="lightbox">
+		<div class="lightbox-content">
+			<img id="lightboxImg" src="content/uploads/lionking.jpg" alt="">
+			<h3>The Lion King</h3>
+			<div class="cross" ng-click='closeLightbox()'></div>
+		</div>
+	</div>
 </div>
